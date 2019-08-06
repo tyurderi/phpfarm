@@ -60,13 +60,13 @@ if [ ! -d "$srcdir" ]; then
     if [ ! -f "$srcfile" ]; then
         echo 'Source file not found:'
         echo "$srcfile"
-        url="http://museum.php.net/php$vmajor/php-$version.tar.bz2"
+        url="https://museum.php.net/php$vmajor/php-$version.tar.bz2"
         wget -P "$bzipsdir" "$url"
         if [ ! -f "$srcfile" ]; then
             echo "Fetching sources from museum failed"
             echo $url
             #museum failed, now we try real download
-            url="http://www.php.net/get/php-$version.tar.bz2/from/this/mirror"
+            url="https://www.php.net/get/php-$version.tar.bz2/from/this/mirror"
             wget -P "$bzipsdir" -O "$srcfile" "$url"
         fi
         if [ ! -s "$srcfile" -a -f "$srcfile" ]; then
