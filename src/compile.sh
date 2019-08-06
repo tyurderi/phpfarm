@@ -61,13 +61,13 @@ if [ ! -d "$srcdir" ]; then
         echo 'Source file not found:'
         echo "$srcfile"
         url="https://museum.php.net/php$vmajor/php-$version.tar.bz2"
-        wget -P "$bzipsdir" "$url"
+        wget --no-check-certificate -P "$bzipsdir" "$url"
         if [ ! -f "$srcfile" ]; then
             echo "Fetching sources from museum failed"
             echo $url
             #museum failed, now we try real download
             url="https://www.php.net/get/php-$version.tar.bz2/from/this/mirror"
-            wget -P "$bzipsdir" -O "$srcfile" "$url"
+            wget --no-check-certificate -P "$bzipsdir" -O "$srcfile" "$url"
         fi
         if [ ! -s "$srcfile" -a -f "$srcfile" ]; then
             rm "$srcfile"
@@ -78,7 +78,7 @@ if [ ! -d "$srcdir" ]; then
             echo $url
             #use ilia's RC (5.3.x)
             url="https://downloads.php.net/ilia/php-$version.tar.bz2"
-            wget -P "$bzipsdir" -O "$srcfile" "$url"
+            wget --no-check-certificate -P "$bzipsdir" -O "$srcfile" "$url"
         fi
         if [ ! -s "$srcfile" -a -f "$srcfile" ]; then
             rm "$srcfile"
@@ -89,7 +89,7 @@ if [ ! -d "$srcdir" ]; then
             echo $url
             #use stas's RC (5.4.x)
             url="https://downloads.php.net/stas/php-$version.tar.bz2"
-            wget -P "$bzipsdir" -O "$srcfile" "$url"
+            wget --no-check-certificate -P "$bzipsdir" -O "$srcfile" "$url"
         fi
         if [ ! -s "$srcfile" -a -f "$srcfile" ]; then
             rm "$srcfile"
